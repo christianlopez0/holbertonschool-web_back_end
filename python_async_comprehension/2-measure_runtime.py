@@ -5,8 +5,7 @@ import time
 from typing import Any
 
 # Import the async_comprehension coroutine from the previous module
-from async_comprehension import async_comprehension
-
+async_comprehension = __import__('1-async_comprehension').async_comprehension
 async def measure_runtime() -> float:
     """
     Measures the total runtime of executing async_comprehension four times in parallel.

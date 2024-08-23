@@ -4,8 +4,8 @@ import asyncio
 from typing import List
 
 # Import the async_generator coroutine from the previous module
-from _0_async_generator import async_generator
 
+async_generator = __import__('0-async_generator').async_generator
 async def async_comprehension() -> List[float]:
     """
     Collects 10 random numbers using asynchronous comprehension.
