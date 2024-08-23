@@ -5,7 +5,7 @@ Module containing the Server class for paginating popular baby names dataset.
 
 import csv
 from typing import List
-from _0_simple_helper_function import index_range
+index_range = __import__('0-simple_helper_function').index_range
 
 class Server:
     """Server class to paginate a database of popular baby names.
