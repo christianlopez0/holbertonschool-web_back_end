@@ -4,12 +4,13 @@ More involved type annotations for safely retrieving a value from a dictionary.
 """
 from typing import Mapping, Any, Union, TypeVar
 
-T = TypeVar('T')
-
+T = TypeVar('T', bound=Any)  
 
 def safely_get_value(
-    dct: Mapping[Any, Any], key: Any, default: Union[T, None] = None
-) -> Union[Any, T]:
+    dct: Mapping[Any, Any],  
+    key: Any,                
+    default: Union[T, None] = None  
+) -> Union[Any, T]:         
     """
     Safely get a value from the dictionary, returning the default if the key is not found.
     """
