@@ -1,23 +1,17 @@
 #!/usr/bin/env python3
+"""
+Let's execute multiple coroutines at the same time with async
+"""
 import asyncio
-import heapq
 from typing import List
-from wait_random import wait_random  # Import wait_random from the previous file
+wait_random = __import__('0-basic_async_syntax').wait_random
+
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
-    delays = []
-    heap = []
-    
-    # Create a list of tasks to execute
-    tasks = [wait_random(max_delay) for _ in range(n)]
-    
-    # Gather results in order of completion
-    for task in asyncio.as_completed(tasks):
-        delay = await task
-        heapq.heappush(heap, delay)
-    
-    # Convert heap to a sorted list
-    while heap:
-        delays.append(heapq.heappop(heap))
-    
-    return delays
+    """
+    wait_n function
+    """
+    list_float: List[float] = []
+    for i in range(n):
+        list_float.append(await wait_random(max_delay))
+    return sorted(list_float)
